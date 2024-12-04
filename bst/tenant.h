@@ -16,7 +16,7 @@ struct Tenant {
 
 struct TenantNode {
     Tenant data;
-    TenantNode* left;
+    TenantNode* left; 
     TenantNode* right;
 
     TenantNode(Tenant tenant) : data(tenant), left(nullptr), right(nullptr) {}

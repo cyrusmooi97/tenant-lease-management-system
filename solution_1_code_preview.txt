@@ -1,0 +1,25 @@
+Agenda Sln 1 Application review 
+i. What functions you have implemented and how? insertion, searching, deletion, get all
+ii. Demo of the working functions.
+iii. What to be improved or added to the existing solution 1 for the next draft of your solution?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+results: 
+search 
+100k - 0.037409 ms 
+50k - 0.042931 ms
+10k - 0.042023 ms

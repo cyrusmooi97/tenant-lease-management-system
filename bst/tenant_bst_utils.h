@@ -1,3 +1,3 @@
-#include "bst.h" 
+#include "bst.h"
 
 void loadTenantData(const std::string& fileName, TenantBST& tenantBST);

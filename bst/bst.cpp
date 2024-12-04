@@ -1,22 +1,24 @@
 #include "bst.h"
 
 // Insert a tenant into the BST
-void TenantBST::insert(Tenant tenant) {
-    root = insertNode(root, tenant);
+bool TenantBST::insert(Tenant tenant) {
+    return insertNode(root, tenant);
 }
 
-TenantBST::TenantNode* TenantBST::insertNode(TenantNode* node, Tenant tenant) {
+bool TenantBST::insertNode(TenantNode*& node, Tenant tenant) {
     if (node == nullptr) {
-        return new TenantNode(tenant);
+        node = new TenantNode(tenant);  // Create and assign the new node
+        return true;  // Insertion successful
     }
 
     if (tenant.tenantID < node->data.tenantID) {
-        node->left = insertNode(node->left, tenant);
+        return insertNode(node->left, tenant);  // Go left
     } else if (tenant.tenantID > node->data.tenantID) {
-        node->right = insertNode(node->right, tenant);
+        return insertNode(node->right, tenant);  // Go right
+    } else {
+        //std::cout << "Duplicate tenantID: " << tenant.tenantID << ". Insertion skipped.\n";
+        return false;  // Duplicate found, insertion skipped
     }
-
-    return node;
 }
 
 // Search for a tenant by ID

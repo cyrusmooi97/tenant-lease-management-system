@@ -1,6 +1,4 @@
-#ifndef TENANTBST_H
-#define TENANTBST_H
-
+#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,7 +16,7 @@ private:
 
     TenantNode* root;
 
-    TenantNode* insertNode(TenantNode* node, Tenant tenant);
+    bool insertNode(TenantNode*& node, Tenant tenant);
     TenantNode* searchNode(TenantNode* node, int tenantID);
     TenantNode* deleteNode(TenantNode* node, int tenantID);
     TenantNode* findMinNode(TenantNode* node);
@@ -27,10 +25,8 @@ private:
 public:
     TenantBST() : root(nullptr) {}
 
-    void insert(Tenant tenant);
+    bool insert(Tenant tenant);
     Tenant* search(int tenantID);
     void remove(int tenantID);
     std::vector<Tenant> getTraversal();
 };
-
-#endif // TENANTBST_H
