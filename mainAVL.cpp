@@ -10,7 +10,7 @@
 
 int main() {
     int choice;
-    const std::string fileName = "dataset/tenant_data_10k.dat";
+    const std::string fileName = "dataset/tenant_data_100k.dat";
     AVLTree tenantAVLtree;
 
     // Pass a lambda that calls `insert` on `tenantBST`
