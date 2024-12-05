@@ -13,11 +13,10 @@ int main() {
     const std::string fileName = "dataset/tenant_data_100k.dat";
     AVLTree tenantAVLtree;
 
-    // Pass a lambda that calls `insert` on `tenantBST`
     Tenant::loadTenantData(fileName, [&tenantAVLtree](const Tenant& tenant) {
         tenantAVLtree.insert(tenant);
     });
-   
+
     do {
         displayMenu();
         std::cin >> choice;

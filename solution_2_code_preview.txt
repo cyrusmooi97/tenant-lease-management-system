@@ -10,4 +10,7 @@ search
 50k - 0.023599 ms
 10k -  0.032444 ms
 
+run application: 
 g++ -g -o build/Debug/outDebug mainAVL.cpp avlTree.cpp -std=c++11
+run test scenario
+g++ -g -o build/Debug/outDebug test.cpp avlTree.cpp -std=c++11
