@@ -2,7 +2,7 @@
 #include <iostream> 
 
 void displayMenu() {
-    std::cout << "\n### Tenant and Lease Management System ###\n";
+    std::cout << "\n### Tenant and Lease Management System BST ###\n";
     std::cout << "1. Insert Tenant\n";
     std::cout << "2. Search Tenant by ID\n";
     std::cout << "3. Delete Tenant by ID\n";

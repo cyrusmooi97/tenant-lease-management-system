@@ -11,20 +11,3 @@ search
 10k - 0.042023 ms
 
 g++ -g -o build/Debug/outDebug mainBST.cpp bst/bst.cpp -std=c++11
-
-
-
-
-Agenda Sln 2 Application review 
-i. What functions you have implemented and how? insertion, searching, deletion, get all
-ii. Demo of the working functions.
-iii. What to be improved or added to the existing solution 2 for the next draft of your solution?
-
-
-results: 
-search 
-100k - 0.025845 ms
-50k - 0.023599 ms
-10k -  0.032444 ms
-
-g++ -g -o build/Debug/outDebug mainAVL.cpp avlTree.cpp -std=c++11
