@@ -10,4 +10,7 @@ search
 50k - 0.042931 ms
 10k - 0.042023 ms
 
+run application:
 g++ -g -o build/Debug/outDebug mainBST.cpp bst/bst.cpp -std=c++11
+run test Scenario
+g++ -g -o build/Debug/outDebug testBST.cpp bst.cpp -std=c++11
