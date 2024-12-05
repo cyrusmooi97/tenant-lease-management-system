@@ -5,27 +5,19 @@
 #include <sstream>  
 #include <chrono>
 #include <thread>
-#include "bst/bst.h"  
-#include "bst/tenant_bst_utils.h"
 #include "main_utils.cpp"
-
-template <typename Func, typename... Args>
-void addTimer(Func&& func, Args&&... args) {
-    auto start = std::chrono::steady_clock::now();
-    
-    // Forward the arguments to the provided function
-    std::forward<Func>(func)(std::forward<Args>(args)...);
-
-    auto end = std::chrono::steady_clock::now();
-    std::chrono::duration<double, std::milli> duration = end - start;
-    std::cout << "Elapsed time: " << duration.count() << " ms\n";
-}
+#include "bst.h"
 
 int main() {
-    TenantBST tenantBST;
     int choice;
-    
-    loadTenantData("dataset/tenant_data_100k.dat", tenantBST);
+    const std::string fileName = "dataset/tenant_data_100k.dat";
+    TenantBST tenantBST;
+
+    // Pass a lambda that calls `insert` on `tenantBST`
+    Tenant::loadTenantData(fileName, [&tenantBST](const Tenant& tenant) {
+        tenantBST.insert(tenant);
+    });
+  
     do {
         displayMenu();
         std::cin >> choice;
@@ -113,23 +105,5 @@ int main() {
        
     } while (choice != 5);
     
-    // //manual test case
-    // auto start = std::chrono::steady_clock::now();
-
-    // Tenant* tenant = tenantBST.search(4864);
-    // if (tenant) {
-    //     std::cout << "Tenant Found: \n";
-    //     std::cout << "ID: " << tenant->tenantID << ", Name: " << tenant->name
-    //                 << ", Lease Start: " << tenant->leaseStart
-    //                 << ", Lease End: " << tenant->leaseEnd;
-                    
-    // } else {
-    //     std::cout << "Tenant not found.\n";
-    // }
-    // auto end = std::chrono::steady_clock::now();
-    // std::chrono::duration<double, std::milli> duration = end - start;
-    // std::cout << "Elapsed time: " << duration.count() << " ms\n";
-    
     return 0;
 }
-

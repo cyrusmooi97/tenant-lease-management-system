@@ -1,5 +1,4 @@
 #include "bst.h"
-
 // Insert a tenant into the BST
 bool TenantBST::insert(Tenant tenant) {
     return insertNode(root, tenant);

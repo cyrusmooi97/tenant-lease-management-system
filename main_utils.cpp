@@ -10,3 +10,15 @@ void displayMenu() {
     std::cout << "5. Exit\n";
     std::cout << "Enter your choice: ";
 }
+
+template <typename Func, typename... Args>
+void addTimer(Func&& func, Args&&... args) {
+    auto start = std::chrono::steady_clock::now();
+    
+    // Forward the arguments to the provided function
+    std::forward<Func>(func)(std::forward<Args>(args)...);
+
+    auto end = std::chrono::steady_clock::now();
+    std::chrono::duration<double, std::milli> duration = end - start;
+    std::cout << "Elapsed time: " << duration.count() << " ms\n";
+}
