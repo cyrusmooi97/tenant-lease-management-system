@@ -4,11 +4,7 @@ ii. Demo of the working functions.
 iii. What to be improved or added to the existing solution 1 for the next draft of your solution?
 
 
-results: 
-search 
-100k - 0.037409 ms 
-50k - 0.042931 ms
-10k - 0.042023 ms
+
 
 run application:
 g++ -g -o build/Debug/outDebug mainBST.cpp bst/bst.cpp -std=c++11
