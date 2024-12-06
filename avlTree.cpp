@@ -16,7 +16,6 @@ void AVLTree::destroyTree(TenantNode* TenantNode) {
     }
 }
 
-// Function to get the height of a TenantNode
 int AVLTree::height(TenantNode* TenantNode) const {
     if (TenantNode == nullptr) return 0;
     return TenantNode->height;
@@ -69,7 +68,6 @@ bool AVLTree::insert(Tenant tenant) {
     return success;
 }
 
-// Helper function to insert a tenant into the AVL tree
 AVLTree::TenantNode* AVLTree::insert(TenantNode* node, Tenant tenant, bool& success) {
     // Step 1: Perform the normal BST insert
     if (node == nullptr) {
@@ -125,7 +123,6 @@ void AVLTree::inorder() const {
     inorder(root);
 }
 
-// Helper function for in-order traversal
 void AVLTree::inorder(TenantNode* TenantNode) const {
     if (TenantNode == nullptr) return;
     inorder(TenantNode->left);
@@ -133,13 +130,13 @@ void AVLTree::inorder(TenantNode* TenantNode) const {
     inorder(TenantNode->right);
 }
 
-// Search for a tenant by ID
+
 Tenant* AVLTree::search(int tenantID) const {
     TenantNode* foundTenantNode = search(root, tenantID);
     return foundTenantNode ? &foundTenantNode->data : nullptr;
 }
 
-// Helper function to search for a tenant by ID
+
 AVLTree::TenantNode* AVLTree::search(TenantNode* node, int tenantID) const {
     if (node == nullptr || node->data.tenantID == tenantID) {
         return node;
@@ -158,7 +155,6 @@ bool AVLTree::deleteTenant(int tenantID) {
     return success;
 }
 
-// Helper function to delete a node
 AVLTree::TenantNode* AVLTree::deleteNode(TenantNode* node, int tenantID, bool& success) {
     // Step 1: Perform the normal BST delete
     if (node == nullptr) {
@@ -228,7 +224,6 @@ AVLTree::TenantNode* AVLTree::deleteNode(TenantNode* node, int tenantID, bool& s
     return node;
 }
 
-// Helper function to find the node with the minimum value (used for deletion)
 AVLTree::TenantNode* AVLTree::minValueNode(TenantNode* node) {
     TenantNode* current = node;
     while (current->left != nullptr) {
